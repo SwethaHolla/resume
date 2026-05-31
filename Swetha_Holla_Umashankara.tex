@@ -1,0 +1,160 @@
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\input{glyphtounicode}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\usepackage[margin=0.4in]{geometry}
+
+\setlength{\tabcolsep}{0in}
+
+\titleformat{\section}
+{\vspace{-4pt}\scshape\raggedright\large}
+{}{0em}{}[\titlerule \vspace{-5pt}]
+
+\pdfgentounicode=1
+
+%-------------------------
+\newcommand{\resumeItem}[1]{\item\small{{#1}}}
+
+\newcommand{\resumeSubheading}[4]{
+\item
+\begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+\textbf{#1} & #2 \\
+\textit{\small#3} & \textit{\small #4} \\
+\end{tabular*}
+}
+
+\newcommand{\resumeProjectHeading}[3]{
+\item
+\begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+\textbf{#1} & #2 \\
+\textit{\small#3} & \\
+\end{tabular*}
+}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.10in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-6pt}}
+
+%-------------------------------------------
+\begin{document}
+%----------HEADING----------
+\begin{center}
+\textbf{\Huge \scshape Swetha Holla Umashankara} \\
+\small \href{mailto:uswethaholla@gmail.com}{\underline{uswethaholla@gmail.com}} $|$
+\href{tel:+447586017902}{\underline{+44 7586 017902}} $|$
+\small Glasgow, Scotland $|$
+\href{https://www.linkedin.com/in/swetha-holla/}{\underline{linkedin.com/in/swetha-holla/}} $|$
+\href{https://github.com/SwethaHolla}{\underline{github.com/SwethaHolla}}
+\end{center}
+
+%-----------SUMMARY-----------
+
+\section{Professional Summary}
+\small{
+\textbf{Software Engineer and Data Scientist} with \textbf{3+ years of experience} in \textbf{Backend Engineering (Java/Spring Boot)} and \textbf{Advanced AI/ML (LLMs, RAG, Agents)}. Expert in deploying scalable, cloud-native architectures on \textbf{AWS} and production-grade AI engines. Recipient of the \textbf{Government of India IEDC scholarship}.
+}
+
+%-----------SKILLS-----------
+\section{Skills}
+\begin{itemize}[leftmargin=0.12in, label={}, nosep]
+\small{
+\item \textbf{AI/ML \& Generative AI:} LLMs (Claude, Gemini, Llama), RAG, Agentic Workflows, LangChain, LangGraph, PyTorch, TensorFlow, Vector DBs (FAISS, ChromaDB, pgvector).
+\item \textbf{Backend:} Spring Boot, FastAPI, REST APIs.
+\item \textbf{Cloud \& DevOps:} AWS (EC2, S3, Lambda, SageMaker), Docker, Kubernetes, CI/CD (Jenkins, GitHub Actions), Observability (ELK Stack).
+\item \textbf{Languages:} Python, Java, JavaScript, TypeScript, SQL.
+\item \textbf{Databases:} PostgreSQL, MySQL, MongoDB.
+\item \textbf{Developer Tools:} Apache Spark, NetworkX, Git, Maven, OpenAPI.
+}
+\end{itemize}
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+\resumeSubHeadingListStart
+
+\resumeSubheading
+{Data Scientist}{Jul 2025 -- Present}
+{Gainr Analytics}{Glasgow, Scotland}
+\resumeItemListStart
+\resumeItem{Spearheaded the engineering and production deployment of a \textbf{proprietary horse racing prediction engine} using \textbf{MLP with self-attention and ensemble models}, outperforming industry baselines by \textbf{33\%} and establishing the primary model for 100\% of production trades.}
+\resumeItem{Innovated a \textbf{ChatGPT-style conversational interface} by integrating \textbf{LLMs (Claude, Gemini)} with a \textbf{RAG pipeline} via \textbf{LangChain}, increasing \textbf{Precision from 0.58 to 0.79 (+36\%)} and reducing query latency by \textbf{33\%}.}
+\resumeItem{Orchestrated \textbf{multi-agent workflows} using \textbf{LangGraph state machines} with persistent memory and guardrails, mitigating hallucinations across \textbf{1,000+ daily automated interactions} to ensure 99.9\% production safety.}
+\resumeItem{Engineered containerized AI services using \textbf{FastAPI and Docker} with full-stack \textbf{observability} (distributed tracing, structured logging), maintaining \textbf{99.9\% uptime} for high-throughput sports trading APIs.}
+\resumeItemListEnd
+
+\resumeSubheading
+{Associate Product Engineer}{Dec 2021 -- Mar 2024}
+{Temenos}{Bengaluru, India}
+\resumeItemListStart
+\resumeItem{Pioneered the \textbf{Temenos IRIS Interaction Framework} using \textbf{Open API (Swagger)}, deploying \textbf{20+ RESTful Provider and Published APIs} to expose core banking capabilities to \textbf{3,000+ global clients}.}
+\resumeItem{Executed a strategic \textbf{cloud migration to AWS (EC2, Lambda, S3)}, transforming legacy \textbf{TAFJ/JMS connectors} into \textbf{Spring Boot microservices}, increasing system throughput by \textbf{25\%} and reducing API latency from \textbf{220ms to 185ms}.}
+\resumeItem{Systematized global API deployment by developing a \textbf{standardized framework using Maven Archetypes}, reducing developer onboarding time by \textbf{40\%} across multiple engineering teams.}
+\resumeItem{Refined production stability by \textbf{15\%} through \textbf{JVM profiling and SOLID design patterns (Factory, Strategy)}, reducing P99 latency for critical banking transactions by \textbf{20\%}.}
+\resumeItem{Expedited release cycles by \textbf{30\%} by implementing \textbf{Jenkins and GitHub Actions} CI/CD pipelines and reduced Mean Time to Detection (MTTD) by \textbf{40\%} via \textbf{ELK Stack} monitoring.}
+\resumeItemListEnd
+\vspace{2pt}
+
+
+\resumeSubHeadingListEnd
+
+%-----------PROJECTS-----------
+\section{Projects}
+\resumeSubHeadingListStart
+\vspace{2pt}
+% $|$ \href{https://demo.link}{\underline{Demo}}
+\resumeProjectHeading
+{\textbf{FinTech Network Analysis}}{\href{https://github.com/SwethaHolla/reddit_data_analysis}{\underline{GitHub}}}{Python, Apache Spark, NLP, NetworkX, VADER}
+\resumeItemListStart
+\resumeItem{Engineered a \textbf{distributed data pipeline} processing \textbf{1M+ financial records} using \textbf{Apache Spark}, applying \textbf{NLP-driven feature extraction} to identify actionable market trends.}
+\resumeItem{Formulated a \textbf{graph-based influence model} within a \textbf{Reddit financial community} using \textbf{NetworkX} centrality measures and transformer-based classifiers to track sentiment shifts.}
+\resumeItem{Devised \textbf{executive-facing dashboards} using \textbf{Matplotlib/Plotly}, translating complex network data into investment-relevant insights for stakeholders.}
+\resumeItemListEnd
+\vspace{2pt}
+
+
+\resumeProjectHeading
+{\textbf{Gesture-Controlled Kiosk Interface}}{\href{https://github.com/SwethaHolla}{\underline{GitHub}}}{Computer Vision, Open CV, Real-time Analysis}
+\resumeItemListStart
+\resumeItem{Built a \textbf{touchless kiosk interface} during COVID using the \textbf{PAJ7620U2 gesture sensor} and \textbf{OpenCV}, achieving a \textbf{5ms real-time response} to eliminate surface contact in public spaces.}
+\resumeItem{Reduced implementation costs by \textbf{66\%} compared to traditional touchscreen infrastructure, making it a practical, scalable solution recognised with a \textbf{Government of India IEDC scholarship}.}
+\resumeItemListEnd
+\resumeSubHeadingListEnd
+
+
+%-----------EDUCATION-----------
+\section{Education}
+\resumeSubHeadingListStart
+\resumeSubheading
+{MSc Data Science}{2024 -- 2025}
+{University of Glasgow}{Glasgow, Scotland}
+% \resumeSubheading
+% {B.E. Electronics and Communication Engineering}{2017 -- 2021}
+% {BNM Institute of Technology, VTU}{Bengaluru, India}
+\resumeSubHeadingListEnd
+
+%-----------AWARDS-----------
+\section{Awards}
+\begin{itemize}[leftmargin=0.12in, label={}]
+\small{
+\item \textbf{Global Leadership Scholarship}, University of Glasgow.
+\item \textbf{Government of India IEDC Scholarship} for achievement in technical innovation.
+}
+\end{itemize}
+
+\end{document}

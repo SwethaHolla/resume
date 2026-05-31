@@ -1,0 +1,73 @@
+name: Publish Resume
+
+on:
+  push:
+    branches:
+      - main
+
+defaults:
+  run:
+    working-directory: .
+
+jobs:
+  build_resume:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+          fetch-tags: true
+      - name: Get Latest Tag
+        id: get_tag
+        run: |
+          # Fetch all tags
+          git fetch --tags
+          # Get the latest tag
+          LATEST_TAG=$(git describe --tags --abbrev=0 || echo "v0")
+          echo "Latest Tag: $LATEST_TAG"
+          echo "current_version=$LATEST_TAG" >> $GITHUB_OUTPUT
+
+      - name: Increment Version
+        id: increment_version
+        run: |
+          # Extract version number from tag (assuming format like v1, v2, etc.)
+          VERSION=$(echo "${{ steps.get_tag.outputs.current_version }}" | sed 's/^v//')
+          echo "Current Version: $VERSION"
+          NEXT_VERSION=$((VERSION + 1))
+          NEXT_TAG="v$NEXT_VERSION"
+          echo "Next Tag: $NEXT_TAG"
+          echo "version=$NEXT_TAG" >> $GITHUB_OUTPUT
+
+      - name: Convert to PDF
+        uses: xu-cheng/latex-action@v4
+        with:
+          root_file: Swetha_Holla_Umashankara.tex
+          # Enable caching for faster builds
+          latexmk_use_lualatex: false  # or true if using LuaLaTeX
+          latexmk_shell_escape: false
+
+      - name: Check PDF exists
+        run: |
+          if [ ! -f Swetha_Holla_Umashankara.pdf ]; then
+            echo "PDF not generated"
+            exit 1
+          fi
+
+      - name: Tag the release
+        run: |
+          new_tag=${{ steps.increment_version.outputs.version }}
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git tag $new_tag
+          git push origin $new_tag
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2.4.2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ steps.increment_version.outputs.version }}
+          files: |
+            Swetha_Holla_Umashankara.pdf
+            Swetha_Holla_Umashankara.tex
